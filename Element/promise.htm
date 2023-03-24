@@ -1,0 +1,62 @@
+<html window-frame="transparent" window-resizable="false">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Test Title</title>
+</head>
+<body>
+    <script type="text/tiscript">
+        var xhrPromise = promise(function(resolve, reject) {
+            self.request(function (data) {
+                resolve(data);
+            }, #get, "http://localhost:3000")
+        })
+        xhrPromise.then(function (res) {
+            stdout.println(JSON.stringify(res));
+        }).catch(function (e) {
+            stdout.println(e);
+        }).finally(function (params) {
+            stdout.println("finally")
+        })
+
+        async function getXhr() {
+            var r = await xhrPromise;
+            stdout.println(r);
+            stdout.println("async")
+        }
+        getXhr();
+
+        var postPromise = promise(function (resolve, reject) {
+            self.request(function (data) {
+                resolve(data)
+            }, #post-json, "http://localhost:3000/p", {
+                p: 22
+            })
+        })
+
+        postPromise.then(function (res) {
+            stdout.println(JSON.stringify(res));
+            stdout.println("post");
+        }).catch(function (e) {
+            stdout.println(e);
+        }).finally(function (params) {
+            stdout.println("finally post")
+        })
+        promise.when(xhrPromise, postPromise).then(function (res) {
+            //stdout.println(JSON.stringify(res));
+            stdout.println("都完成了")
+        }).catch(function (e) {
+            stdout.println(e);
+        })
+        async function getRemoteTexts(url)
+        {
+            try {
+                var text = await view.request { url: url, output: #string };
+                stdout.println("complete:", text);
+            } catch(e) {
+                stdout.println("got error:", e);
+            }
+        }
+        getRemoteTexts("http://localhost:3000")
+    </script>
+</body>
+</html>

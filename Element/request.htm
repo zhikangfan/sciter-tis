@@ -1,0 +1,32 @@
+<html window-frame="transparent" window-resizable="false">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Test Title</title>
+</head>
+<body>
+    
+    <script type="text/tiscript">
+        self.request(function (data) {
+            stdout.println(data.a);
+            stdout.println(JSON.stringify(data));
+        }, #get, "http://localhost:3000", {
+            q: 1
+        })
+        self.request(function (data) {
+            stdout.println(JSON.stringify(data));
+        }, #post-json, "http://localhost:3000/p", {
+            b: 2
+        })
+        function getRemoteTexts(url)
+        {
+            try {
+                var text = await view.request { url: url, output: #string };
+                stdout.println("complete:", text);
+            } catch(e) {
+                stdout.println("got error:", e);
+            }
+        }
+        getRemoteTexts("http://localhost:3000")
+    </script>
+</body>
+</html>
