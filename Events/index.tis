@@ -1,0 +1,22 @@
+//  self << event keydown (evt) {
+//     stdout.println(evt);
+//     view.msgbox(11,evt.keyCode)
+//     // if( evt.keyCode == Event.VK_F5 ) {
+//     //   if( self.parent ) // loaded in frame
+//     //     self.parent.load(__FILE__);
+//     //   else // loaded in view ...
+//     //     view.load(__FILE__);
+//     //   return true;
+//     // }
+// }
+
+
+// $(#btn) << event click() {
+
+//     view.msgbox("click")
+// }
+
+// event click $(#btn) {
+
+//     view.msgbox("click")
+// }

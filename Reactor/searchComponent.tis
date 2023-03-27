@@ -1,0 +1,26 @@
+include "sciter:reactor.tis";
+
+class Search : Reactor.Component {
+
+  this var elInput;
+
+  function render() {
+    return <search>
+        <input|text @(this.elInput) />
+        <button.do/>
+    </search>;
+  }
+
+  event click $(button.do) { 
+    this.postEvent("do-search", this.elInput.value ); 
+  }
+  event change $(input) { 
+    this.showSuggestionsFor( this.elInput.value ); 
+  }
+
+  property value(v) 
+  {
+     get return this.elInput.value;
+     set this.elInput.value = v;
+  }
+}

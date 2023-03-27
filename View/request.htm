@@ -1,0 +1,31 @@
+<html window-frame="transparent" window-resizable="false">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Test Title</title>
+</head>
+<body>
+    <script type="text/tiscript">
+        view.request({
+            type: #get,
+            url: "http://localhost:3000",
+            protocol: #json,
+            params: {
+                p: 12
+            },
+            success: function (res) {
+                stdout.println(res)
+            },
+            error: function (e) {
+                stdout.println(e)
+            },
+            complete: function (data, status) {
+                stdout.println("complete")
+            },
+            progress: function (bytesReceived, totlaBytes) {
+                stdout.println(bytesReceived, totlaBytes)
+            },
+            output: #json
+        })
+    </script>
+</body>
+</html>

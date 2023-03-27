@@ -1,0 +1,19 @@
+<html window-frame="transparent" window-resizable="false">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Test Title</title>
+</head>
+<body>
+    <input id="inp"/>
+    <script type="text/tiscript">
+        $(#inp).state.focus = true;
+
+        function* t() {
+            yield 1;
+            yield 2;
+        }
+        //stdout.println(t.next())
+        view.msgbox("t", t)
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html window-frame="transparent" window-resizable="false">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Test Title</title>
+    <script type="text/tiscript">
+        function tick() {
+            const velement = 
+                <div id="root">
+                <h1>Hello, world!</h1>
+                <h2>It is {new Date().toLocaleString(#time)}.</h2>
+                </div>;
+            $(div#root).merge(velement);
+            return true; // to keep timer running
+        }
+
+        self.timer(1s, tick)
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>

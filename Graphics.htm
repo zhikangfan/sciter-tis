@@ -1,0 +1,43 @@
+<html window-frame="transparent" window-resizable="false">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Test Title</title>
+    <style>
+    </style>
+</head>
+<body>
+<div>111</div>
+
+    <script type="text/tiscript">
+        var {a,b} = {a: 1, b: 2}; //解构语法
+        //stdout.println(a,b)
+        //view.msgbox(a,b)
+
+        const test = () => {
+            return 123;
+        }
+        const test2 = () => 455;
+
+        
+        const p = promise((resolve, reject) => {
+            self.timer(2s, () => {
+                resolve(1111)
+                view.msgbox(test(), test2());
+                return false;
+            })
+        })
+
+        async function t () {
+            var a = await p;
+            view.msgbox(a)
+        }
+
+        t();
+       // const ap = async () => {
+        //   var a = await p;
+        //   view.msg(a)
+        //}
+        //ap();
+    </script>
+</body>
+</html>

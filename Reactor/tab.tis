@@ -1,0 +1,8 @@
+include "sciter:reactor.tis";
+
+class Tab: Reactor.component {
+
+    function render() {
+        return <div>TAb</div>
+    }
+}

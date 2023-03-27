@@ -1,0 +1,27 @@
+class Welcome: Element {
+
+    function this(props) {
+        this.props = props;
+        this.time = new Date();
+    }
+
+    function update(newdata = null) { //function updater() { this.merge(this.render()); }- 定义本地更新方法,调用this.render()产生虚拟元素的方法；调用本机Element.merge(velement)方法，使用元素定义修补此现有 DOM 元素；
+      assert !newdata || typeof newdata == #object; 
+      if(newdata) this.extend(newdata); //this.extend(newdata)- 这将新数据与该对象的属性合并；
+      this.post(() => this.merge(this.render()),true);  //this.post(updater)- 将调用updater()安排到下一个事件处理周期。
+    }
+
+    function attached() { //又名 React::componentDidMount, 当元素附加到 DOM 树时由运行时调用
+        this.timer(1000, function (){
+            this.update { time:new Date() };   //更新数据
+            return true;
+        })
+
+    }
+    // function render() {
+    //     return <h1>kkk</h1>
+    // }
+    render() {
+        return <div><h1>Welcome</h1>{this.props.txt}{this.time.toLocaleString(#time)}</div>
+    }
+}

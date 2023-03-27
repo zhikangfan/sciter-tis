@@ -1,0 +1,10 @@
+@set cbd
+{
+  :root {
+    display: block;
+    flow:vertical;
+  }
+  .title {
+    color: red;
+  }
+}

@@ -1,0 +1,27 @@
+<html window-frame="transparent" window-resizable="false">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Test Title</title>
+</head>
+<body>
+    <div id="content"></div>
+    <script type="text/tiscript">
+        var direction = false;
+        function anim() {
+            $(#content).animate(function (progress) {
+                stdout.println(progress)
+                this.style#width = progress * 200;
+                this.style#height = progress * 100;
+                this.style#background = "red";
+                stdout.println("sport");
+            }, function () {
+                stdout.println("sport end");
+                this.style#width = 0
+                this.style#height = 0
+                anim();
+            }, 5000)
+        }
+        anim()
+    </script>
+</body>
+</html>

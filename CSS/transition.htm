@@ -1,0 +1,32 @@
+<html window-frame="transparent" window-resizable="false">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Test Title</title>
+    <style>
+        div
+        {
+        width:100px;
+        height:100px;
+        background: red;
+        }
+        div:hover
+        {
+        width:200px;
+        height:200px;
+        background: green;
+        //transition: width(linear,400ms), height(linear,400ms);
+        transition: width linear 400ms, height linear 400ms;
+        }
+    </style>
+</head>
+<body>
+    <div>Hover Me</div>
+    <script type="text/tiscript">
+        stdout.println("ok")
+        stdout.println(setInterval)
+        setInterval(function () {
+            stdout.println(111)
+        }, 1000)
+    </script>
+</body>
+</html>

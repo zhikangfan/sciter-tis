@@ -1,0 +1,23 @@
+include "sciter:reactor.tis";
+
+class Clock: Reactor.Component 
+{
+    const styleset = ["cbd", $url(clock.css)]; //组件内容样式， const styleset = ["clock", $url(clock.css), #important]; 作用全局
+
+    //组件的本地数据存储位于实例的 this.data字段中：  
+  this var time = new Date(); // setting initial state 
+  function attached() { //又名 React::componentDidMount, 当元素附加到 DOM 树时由运行时调用
+    this.timer(1s, function() {
+      this.update { time:new Date() };  //更新数据
+      return true; // to keep the timer ticking
+    });
+  }
+    
+  function render() {
+    return
+     <div class="cbd">
+      <h1 class="title">Hello, world!</h1>
+      <h2>It is {this.time.toLocaleString(#time)} now.</h2>
+     </div>;
+  } 
+} 

@@ -41,12 +41,8 @@
         }).finally(function (params) {
             stdout.println("finally post")
         })
-        promise.when(xhrPromise, postPromise).then(function (res) {
-            //stdout.println(JSON.stringify(res));
-            stdout.println("都完成了")
-        }).catch(function (e) {
-            stdout.println(e);
-        })
+        var items = promise.when(xhrPromise, postPromise);
+        stdout.println(items[0], items[1])
         async function getRemoteTexts(url)
         {
             try {
